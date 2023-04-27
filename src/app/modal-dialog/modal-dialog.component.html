@@ -1,0 +1,8 @@
+<div *ngIf="isOpen" class="overlay-effect">
+    <div class="card">
+        <h3 *ngIf="header" class="section">{{ header }}</h3>
+        <section class="section">
+            <ng-content></ng-content>
+        </section>
+    </div>
+</div>

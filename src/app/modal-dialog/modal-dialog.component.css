@@ -1,0 +1,16 @@
+/* Used CSS rules from mini.css to achieve overlay effect */
+
+.overlay-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1200;
+}
+
+.overlay-effect > .card {
+    margin: 0 auto;
+}

@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-sm-11">
+    <!-- Conference dropdown -->
+    <app-options-list 
+      [value]="initialConference"
+      (valueChange)="conferenceSelected($event)" 
+      [options]="conferences" 
+      [optional]="true">
+    </app-options-list>
+
+    <!-- Division dropdown -->
+    <app-options-list 
+      [value]="initialDivision"
+      (valueChange)="divisionSelected($event)"
+      [options]="divisions"
+      [optional]="true">
+    </app-options-list>
+    
+    <!-- Teams dropdown -->
+    <app-options-list 
+      #teamSelect
+      [options]="teams | toOptions : 'id' : 'full_name'">
+    </app-options-list>
+    
+    <button class="primary" (click)="trackTeam(teamSelect.value)">Track team</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-5">
+    <span>Results of past </span>
+    <!-- number of days of data dropdown -->
+    <app-options-list 
+      [value]="initialDaysOfData"
+      [options]="numDaysOfData"
+      (valueChange)="daysOfDataSelected($event)"></app-options-list>
+    <span>days</span>
+  </div>
+</div>
+
+<div class="row">
+  <app-team-stats class="col-sm-4" *ngFor="let team of nbaService.getTrackedTeams()" [team]="team">
+
+  </app-team-stats>
+</div>

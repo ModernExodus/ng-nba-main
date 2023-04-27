@@ -1,0 +1,5 @@
+<select #select>
+    <option *ngFor="let option of options" (click)="valueChanged(select.value)" [value]="option.key">
+        {{ option.value }}
+    </option>
+</select>
